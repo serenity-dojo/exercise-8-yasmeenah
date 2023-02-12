@@ -3,6 +3,7 @@ package com.serenitydojo;
 
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +18,11 @@ public class WhenWorkingWithSets {
     // We can create a set and add values to the set
     @Test
     public void creatingANewSet() {
-        Set<String> colors = null;
+
+    Set<String> colors = new HashSet<>();
+    colors.add("red");
+    colors.add("green");
+    colors.add("blue");
 
         // TODO: Create a new HashSet and add the values "red", "green", and "blue"
 
@@ -27,7 +32,7 @@ public class WhenWorkingWithSets {
     // We can create a set containing a specified list of values")
     @Test
     public void creatingASetOfValues() {
-        Set<String> colors = null;
+        Set<String> colors = new HashSet<>(Set.of("red","green","blue"));
 
         // TODO: Create a set of Strings containing the values "red", "green" and "blue"
         //  using the Set.of() method
@@ -45,7 +50,7 @@ public class WhenWorkingWithSets {
         colors.add("yellow");
         colors.add("red");
 
-        int expectedSize = 0;
+        int expectedSize = 4;
 
         assertThat(colors.size()).isEqualTo(expectedSize);
     }
@@ -58,15 +63,38 @@ public class WhenWorkingWithSets {
         // TODO: Change this code so that it correctly determines whether the set is empty
         Boolean startedEmpty = null;
 
-        colors.add("red");
+        if(colors.size() == 0) {
+
+            startedEmpty = colors.isEmpty();
+        }
+
+
+
+       colors.add("red");
         colors.add("green");
         colors.add("blue");
 
-        // TODO: Change this code so that it correctly determines whether the set now empty or not
+
         Boolean endedUpEmpty = null;
 
+        if (colors.size() != 0)
+        {
+            endedUpEmpty =colors.isEmpty();
+        }
         assertThat(startedEmpty).isTrue();
         assertThat(endedUpEmpty).isFalse();
+
+
+
+
+
+        // TODO: Change this code so that it correctly determines whether the set now empty or not
+
+
+
+
+
+
     }
 
 }
